@@ -7,24 +7,28 @@
 
 	<h1>Formulaire pour ajouter une Personne</h1>
 
+	<div class="mb-3">
+
 	{{ form_start(PersonneType, {'attr': {'id': 'form_contact', 'onsubmit': 'sendForm(event);'}}) }}
 		<table class="formulaire form_contact">
 			<tr>
-				<td> {{ form_widget(PersonneType.prenom,{ 'attr': {'placeholder': 'Votre Prénom'} })}} </td>
+				<td> {{ form_widget(PersonneType.prenom,{ 'attr': {'placeholder': 'Votre Prénom', 'class':'form-control'} })}} </td>
 			</tr>
             <tr>
-				<td> {{ form_widget(PersonneType.nom,{ 'attr': {'placeholder': 'Votre Nom'} })}} </td>
+				<td> {{ form_widget(PersonneType.nom,{ 'attr': {'placeholder': 'Votre Nom', 'class':'form-control'} })}} </td>
 			</tr>
             <tr>
-				<td> {{ form_widget(PersonneType.date_de_naissance,{ 'attr': {'placeholder': 'Votre Date de Naissance'} })}} </td>
+				<td> {{ form_widget(PersonneType.date_de_naissance,{ 'attr': {'placeholder': 'Votre Date de Naissance', 'class':'form-control'} })}} </td>
 			</tr>
             <tr>
                 <td><input id="submit_btn" type="submit" name="commit" value="Valider"/></td>
             </tr>
 		</table>
-	{{ form_end(PersonneType) }}		
+	{{ form_end(PersonneType) }}	
+	</div>	
 
 
     <button><a href="/visualiser"> visualiser </a></button>
+</div>
 
 {% endblock %}

@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\PersonneType;
 use App\Entity\Personne;
-use App\Repository\PersonneRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -40,7 +39,9 @@ class ShowPersonneController extends AbstractController
     #[Route('/visualiser', name: 'show_all_personne')]
     public function showAllPersonne(ManagerRegistry $doctrine): Response
     {
-        $all_personne = $doctrine->getRepository(Personne::class->findAll());
+        $all_personne = $doctrine->getRepository(Personne::class)->findAll();
+
+        dd($all_personne);
 
         return $this->render('show_personne/show_all_personne.html.twig', [
             'controller_name' => 'ShowPersonneController',
