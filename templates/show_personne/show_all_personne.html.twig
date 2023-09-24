@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les personnes en base{% endblock %}
+
+{% block body %}
+<div class="body_all">
+
+	<div><a href="/">Revenir au formulaire</a> - Liste des personnes en base</div>
+
+	<h1>Toutes les personnes actuellement en base</h1>
+
+
+	{% if all_personne %}
+
+	<table class="table table-dark">
+		<thead>
+		  <tr>
+			<th scope="col">Prénom</th>
+			<th scope="col">Nom</th>
+			<th scope="col">Age</th>
+		  </tr>
+		</thead>
+		<tbody>
+
+		{% for one_personne in all_personne %}
+
+		  <tr>
+			<td>{{ one_personne.prenom }}</td>
+			<td>{{ one_personne.nom }}</td>
+			<td>{{ one_personne.dateDeNaissance | dateToAge }}</td>
+		  </tr>
+
+		  {% endfor %}
+
+		</tbody>
+	  </table>
+
+	
+
+
+
+	{% else %}
+
+		<div class="alert alert-warning"><p>Aucune personne enregistrée en base pour le moment</p></div>
+
+	{% endif %}
+
+
+{% endblock %}

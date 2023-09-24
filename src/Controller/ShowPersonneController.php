@@ -10,9 +10,14 @@ use App\Form\PersonneType;
 use App\Entity\Personne;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Twig\AppExtension;
 
 class ShowPersonneController extends AbstractController
 {
+    /*
+        function: Print Form to add elements in Personne table
+        @author Jean PIN 
+    */
     #[Route('/', name: 'app_show_personne')]
     public function index(Request $request,EntityManagerInterface $entityManager,): Response
     {
@@ -21,6 +26,8 @@ class ShowPersonneController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+           // dd($form->get('date_de_naissance')->getData());
 
             $new_personne = new Personne();
             $new_personne->setPrenom($form->get('prenom')->getData());
@@ -36,15 +43,17 @@ class ShowPersonneController extends AbstractController
         ]);
     }
 
+    /*
+        function: Show all element form Personne table
+        @author Jean PIN 
+    */
     #[Route('/visualiser', name: 'show_all_personne')]
     public function showAllPersonne(ManagerRegistry $doctrine): Response
     {
         $all_personne = $doctrine->getRepository(Personne::class)->findAll();
 
-        dd($all_personne);
-
         return $this->render('show_personne/show_all_personne.html.twig', [
-            'controller_name' => 'ShowPersonneController',
+            'all_personne' => $all_personne
         ]);
     }
 }

@@ -23,9 +23,8 @@ class PersonneType extends AbstractType
             ->add('date_de_naissance', DateType::class, [
                 'required' => true,
                 'widget' => 'choice',
-                'years' => range(date('Y'), date('Y') + 10),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+                'format' => 'dd-MM-yyyy',
+                'years' => range(date('Y'), date('Y') - 150)
             ])
         ;
     }

@@ -20,8 +20,8 @@ class Personne
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_de_naissance = null;
+    #[ORM\Column(type: 'date', nullable: true)]
+    private $date_de_naissance = null;
 
     public function getId(): ?int
     {
