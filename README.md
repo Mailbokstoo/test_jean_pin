@@ -17,7 +17,7 @@ VM avec Ubuntu20, mysql, PHP8.1 crée pour le test
 - Classe Personne créée dans src/Entity avec la commande make:entity
 - Ajout de la table personne sous mysql 
 
-CREATE TABLE personne ( id int(11) AUTO_INCREMENT, nom varchar(255), prenom varchar(255),date_de_naissance datetime, PRIMARY KEY (id)
+CREATE TABLE personne ( id int(11) AUTO_INCREMENT, nom varchar(255), prenom varchar(255),date_de_naissance date, PRIMARY KEY (id)
 );
 
 - Création du controller ShowPersonneController - src/Controller avec la commande make:controller

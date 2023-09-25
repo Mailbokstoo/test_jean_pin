@@ -27,8 +27,6 @@ class ShowPersonneController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-           // dd($form->get('date_de_naissance')->getData());
-
             $new_personne = new Personne();
             $new_personne->setPrenom($form->get('prenom')->getData());
             $new_personne->setNom($form->get('nom')->getData());
